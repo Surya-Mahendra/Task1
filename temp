@@ -1,0 +1,26 @@
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+def main():
+    print("Temperature Converter")
+    temp_input = input("Enter the temperature (e.g., 36C or 98F): ").strip()
+
+    if temp_input[-1].lower() == 'c':
+        try:
+            celsius = float(temp_input[:-1])
+            fahrenheit = celsius_to_fahrenheit(celsius)
+            print(f"{celsius}°C is {fahrenheit:.2f}°F")
+        except ValueError:
+            print("Invalid temperature value.")
+    elif temp_input[-1].lower() == 'f':
+        try:
+            fahrenheit = float(temp_input[:-1])
+            celsius = fahrenheit_to_celsius(fahrenheit)
+            print(f"{fahrenheit}°F is {celsius:.2f}°C")
+        except ValueError:
+            print("Invalid temperature value.")
+    else:
+        print("Please end the temperature with 'C' or 'F' to indicate the unit.")
